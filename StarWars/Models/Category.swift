@@ -28,7 +28,6 @@ enum Category {
     case .species: return UIImage(named: "iconPawPrint")
     case .starships: return UIImage(named: "iconDeathStar")
     case .vehicles: return UIImage(named: "iconScooter")
-      
     }
   }
 }
