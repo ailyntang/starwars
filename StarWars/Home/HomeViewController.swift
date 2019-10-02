@@ -5,7 +5,7 @@ final class HomeViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
   private let cellIdentifier = "HomeCell"
-  private let categories = ["Films", "Planets", "People", "Species", "Starships", "Vehicles"]
+  private let categories: [Category] = [.films, .people, .planets, .species, .starships, .vehicles]
   
   override func viewDidLoad() {
     super.viewDidLoad()
