@@ -19,6 +19,7 @@ final class FilmsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    viewModel?.loadFilms()
   }
 }
 
@@ -38,6 +39,6 @@ extension FilmsViewController: UITableViewDataSource {
 extension FilmsViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    viewModel?.loadFilms()
+
   }
 }
