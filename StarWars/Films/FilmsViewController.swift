@@ -4,7 +4,17 @@ import UIKit
 final class FilmsViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
+  var viewModel: FilmsViewModel?
   private let cellIdentifier = "FilmCell"
+  
+  init(with viewModel: FilmsViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
