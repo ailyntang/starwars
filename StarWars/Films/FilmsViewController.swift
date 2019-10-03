@@ -34,3 +34,10 @@ extension FilmsViewController: UITableViewDataSource {
     return cell
   }
 }
+
+extension FilmsViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    viewModel?.loadFilms()
+  }
+}
