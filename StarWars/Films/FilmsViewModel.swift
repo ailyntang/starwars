@@ -14,14 +14,6 @@ final class FilmsViewModel {
   
   func loadFilms() {
     let networkManager = NetworkManager()
-    networkManager.fetchFilms() { [weak self] results, errorMessage in
-      if let results = results {
-        print("YAAAY results! \n\(results)")
-      }
-      
-      if !errorMessage.isEmpty {
-        print("Error loading films: \(errorMessage)")
-      }
-    }
+    networkManager.fetchFilmsSimple()
   }
 }

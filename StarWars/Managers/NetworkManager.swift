@@ -9,23 +9,14 @@ final class NetworkManager {
   var films: [Film] = []
   private let url = URL(string: "https://swapi.co/api/films/1")!
   
-  func fetchFilms(completionHandler: @escaping (Film?, String) -> Void) {
-    dataTask?.cancel()
+  func fetchFilmsSimple() {
+    let urlString = "https://www.swapi.co/api/films/"
     
-    dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in defer {
-      self?.dataTask = nil
+    if let url = URL.init(string: urlString) {
+      let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        print(String.init(data: data!, encoding: .ascii) ?? "no data")
       }
-      if let error = error {
-        self?.errorMessage = "DataTask error: \(error.localizedDescription)"
-      } else if
-        let data = data,
-        let response = response as? HTTPURLResponse,
-        response.statusCode == 200 {
-        print(data)
-        DispatchQueue.main.async {
-          completionHandler(Film(title: "woo it worked", director: "mee", openingCrawl: "y'all"), self?.errorMessage ?? "")
-        }
-      }
+      task.resume()
     }
   }
 }
