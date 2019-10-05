@@ -5,10 +5,15 @@ final class FilmsViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
   private let cellIdentifier = "FilmCell"
+  private var films: [Film]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    NetworkManager().fetchFilms { (films) in
+      self.films = films
+      self.tableView.reloadData()
+    }
   }
 }
 
@@ -21,7 +26,7 @@ extension FilmsViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? FilmCell else {
       fatalError("Issue dequeuing \(cellIdentifier)")
     }
-    cell.configure(with: Film(title: "boo", director: "hoo"))
+    cell.configure(with: films?[indexPath.row] ?? Film(title: "Wait for it..", director: ""))
     return cell
   }
 }
