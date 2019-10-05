@@ -2,20 +2,12 @@
 import Foundation
 
 final class FilmsViewModel {
-  let count: Int = 7
-  
-  private var title: String
-  private var director: String
+  var count: Int? = 7
+  var films: [Film]?
 
-  init(with film: Film){
-    self.title = film.title
-    self.director = film.director
-  }
-  
-  func fetchFilms() {
-    let networkManager = NetworkManager()
-    networkManager.fetchFilms { (films) in
-      print(films)
+  init() {
+    NetworkManager().fetchFilms { (films) in
+      self.films = films
     }
   }
 }

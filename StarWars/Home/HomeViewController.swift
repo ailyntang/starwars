@@ -34,7 +34,7 @@ extension HomeViewController: UITableViewDelegate {
     
     let category = categories[indexPath.row]
     let viewController: UIViewController
-    let filmsViewModel = FilmsViewModel(with: Film(title: "chasing liberty", director: "cool mcgool"))
+    let filmsViewModel = FilmsViewModel()
     
     switch category {
     case .films: viewController = FilmsViewController(with: filmsViewModel)
