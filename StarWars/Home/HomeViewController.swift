@@ -34,11 +34,10 @@ extension HomeViewController: UITableViewDelegate {
     
     let category = categories[indexPath.row]
     let viewController: UIViewController
-    let filmsViewModel = FilmsViewModel()
     
     switch category {
-    case .films: viewController = FilmsViewController(with: filmsViewModel)
-    default: viewController = FilmsViewController(with: filmsViewModel)
+    case .films: viewController = FilmsViewController()
+    default: viewController = FilmsViewController()
     }
     
     navigationController?.pushViewController(viewController, animated: true)
