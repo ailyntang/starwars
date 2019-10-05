@@ -2,29 +2,33 @@
 import Foundation
 
 final class NetworkManager {
-  
-  let defaultSession = URLSession(configuration: .default)
-  var dataTask: URLSessionDataTask?
-  var errorMessage = ""
+
   var films: [Film] = []
-  private let url = URL(string: "https://swapi.co/api/films/1")!
+  private let domainUrlString = "https://swapi.co/api/"
   
-  func fetchFilmsSimple() {
-    let urlString = "https://www.swapi.co/api/films/"
+  func fetchFilms(completionHandler: @escaping ([Film]) -> Void) {
+    let urlString = domainUrlString + "films/"
     
-    if let url = URL.init(string: urlString) {
-      let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-        print(String.init(data: data!, encoding: .ascii) ?? "no data")
-      }
+    if let url = URL(string: urlString) {
+      let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        if let filmSummary = try? JSONDecoder().decode(FilmSummary.self, from: data!) {
+          completionHandler(filmSummary.results ?? [])
+        }
+      })
       task.resume()
     }
   }
-}
 
-private extension NetworkManager {
-  func getRequest(url: URL) -> URLRequest {
-    var request = URLRequest(url: url)
-    request.httpMethod = "GET"
-    return request
+  private func fetchFilm(withID id:Int, completionHandler: @escaping (Film) -> Void) {
+    let urlString = domainUrlString + "films/\(id)"
+    
+    if let url = URL(string: urlString) {
+      let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let film = try? JSONDecoder().decode(Film.self, from: data!) {
+          completionHandler(film)
+        }
+      }
+      task.resume()
+    }
   }
 }
