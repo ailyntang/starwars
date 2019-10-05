@@ -19,13 +19,13 @@ final class FilmsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-    viewModel?.loadFilms()
+    viewModel?.fetchFilms()
   }
 }
 
 extension FilmsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 7
+    return viewModel?.count ?? 1
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

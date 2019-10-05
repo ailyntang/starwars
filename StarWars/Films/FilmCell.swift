@@ -9,6 +9,6 @@ final class FilmCell: UITableViewCell {
   func configure(with film: Film) {
     titleLabel.text = film.title
     subtitleLabel.text = film.director
-    descriptionLabel.text = film.openingCrawl
+    descriptionLabel.text = "film.openingCrawl"
   }
 }
