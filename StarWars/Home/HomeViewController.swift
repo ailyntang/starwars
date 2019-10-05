@@ -27,3 +27,20 @@ extension HomeViewController: UITableViewDataSource {
     return cell
   }
 }
+
+extension HomeViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    
+    let category = categories[indexPath.row]
+    let viewController: UIViewController
+    let filmsViewModel = FilmsViewModel()
+    
+    switch category {
+    case .films: viewController = FilmsViewController(with: filmsViewModel)
+    default: viewController = FilmsViewController(with: filmsViewModel)
+    }
+    
+    navigationController?.pushViewController(viewController, animated: true)
+  }
+}
