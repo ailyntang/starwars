@@ -4,34 +4,29 @@ import UIKit
 final class FilmsViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
-  var viewModel: FilmsViewModel?
   private let cellIdentifier = "FilmCell"
-  
-  init(with viewModel: FilmsViewModel) {
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
+  private var films: [Film]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    NetworkManager().fetchFilms { (films) in
+      self.films = films
+      self.tableView.reloadData()
+    }
   }
 }
 
 extension FilmsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel?.count ?? 1
+    return 7
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? FilmCell else {
       fatalError("Issue dequeuing \(cellIdentifier)")
     }
-    cell.configure(with: viewModel?.films?[indexPath.row] ?? Film(title: "boo", director: "hoo"))
+    cell.configure(with: films?[indexPath.row] ?? Film(title: "Wait for it..", director: ""))
     return cell
   }
 }
