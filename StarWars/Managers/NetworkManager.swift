@@ -12,9 +12,7 @@ final class NetworkManager {
     if let url = URL(string: urlString) {
       let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
         if let filmSummary = try? JSONDecoder().decode(FilmSummary.self, from: data!) {
-          DispatchQueue.main.async {
-            completionHandler(filmSummary.results ?? [])
-          }
+          completionHandler(filmSummary.results ?? [])
         }
       })
       task.resume()

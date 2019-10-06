@@ -12,7 +12,9 @@ final class FilmsViewController: UIViewController {
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     NetworkManager().fetchFilms { (films) in
       self.films = films
-      self.tableView.reloadData()
+      DispatchQueue.main.async{
+        self.tableView.reloadData()
+      }
     }
   }
 }
