@@ -8,7 +8,7 @@ final class FilmCell: UITableViewCell {
 
   func configure(with film: Film) {
     titleLabel.text = film.title
-    subtitleLabel.text = film.director
+    subtitleLabel.text = String(film.episodeId)
     descriptionLabel.text = "film.openingCrawl"
   }
 }

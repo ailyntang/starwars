@@ -28,7 +28,7 @@ extension FilmsViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? FilmCell else {
       fatalError("Issue dequeuing \(cellIdentifier)")
     }
-    cell.configure(with: films?[indexPath.row] ?? Film(title: "Wait for it..", director: ""))
+    cell.configure(with: films?[indexPath.row] ?? Film(title: "Wait for it..", episodeId: 4))
     return cell
   }
 }
