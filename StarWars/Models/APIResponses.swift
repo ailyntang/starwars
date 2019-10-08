@@ -21,3 +21,14 @@ struct Film: Codable {
     self.episodeId = episodeId
   }
 }
+
+struct People: Codable {
+  let count: Int
+  let next: String?
+  let prev: String?
+  let results: [Person]?
+}
+
+struct Person: Codable {
+  let name: String
+}
