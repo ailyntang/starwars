@@ -3,11 +3,16 @@ import Foundation
 
 struct Film: Codable {
   let title: String
-  let director: String
+  let episodeId: Int
+  
+  enum CodingKeys: String, CodingKey {
+    case title
+    case episodeId = "episode_id"
+  }
   
   init(title: String,
-       director: String) {
+       episodeId: Int) {
     self.title = title
-    self.director = director
+    self.episodeId = episodeId
   }
 }

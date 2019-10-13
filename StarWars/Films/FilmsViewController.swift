@@ -12,7 +12,9 @@ final class FilmsViewController: UIViewController {
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     NetworkManager().fetchFilms { (films) in
       self.films = films
-      self.tableView.reloadData()
+      DispatchQueue.main.async{
+        self.tableView.reloadData()
+      }
     }
   }
 }
@@ -26,7 +28,7 @@ extension FilmsViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? FilmCell else {
       fatalError("Issue dequeuing \(cellIdentifier)")
     }
-    cell.configure(with: films?[indexPath.row] ?? Film(title: "Wait for it..", director: ""))
+    cell.configure(with: films?[indexPath.row] ?? Film(title: "Wait for it..", episodeId: 4))
     return cell
   }
 }

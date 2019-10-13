@@ -31,28 +31,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwA-e5-FbG">
-                        <rect key="frame" x="10" y="62" width="310" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MwA-e5-FbG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="3G2-te-QEb"/>
                     <constraint firstItem="wZR-5G-fMx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="M30-U4-yhh"/>
                     <constraint firstItem="wZR-5G-fMx" firstAttribute="top" secondItem="RdZ-ni-98W" secondAttribute="bottom" constant="10" id="M8d-ZV-ErO"/>
                     <constraint firstAttribute="trailing" secondItem="wZR-5G-fMx" secondAttribute="trailing" id="P1w-SO-TwV"/>
-                    <constraint firstItem="MwA-e5-FbG" firstAttribute="top" secondItem="wZR-5G-fMx" secondAttribute="bottom" constant="10" id="c3z-cE-9tl"/>
                     <constraint firstItem="RdZ-ni-98W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="f82-nz-wdK"/>
                     <constraint firstItem="RdZ-ni-98W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jMX-F2-e62"/>
-                    <constraint firstAttribute="trailing" secondItem="MwA-e5-FbG" secondAttribute="trailing" id="kdw-H6-c8Y"/>
                     <constraint firstAttribute="trailing" secondItem="RdZ-ni-98W" secondAttribute="trailing" id="rlB-JU-NXa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="descriptionLabel" destination="MwA-e5-FbG" id="Uvl-tt-ArB"/>
                 <outlet property="subtitleLabel" destination="wZR-5G-fMx" id="GJG-aU-LzS"/>
                 <outlet property="titleLabel" destination="RdZ-ni-98W" id="u9V-KC-pYG"/>
             </connections>
