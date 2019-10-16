@@ -10,10 +10,10 @@ final class FilmsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-    NetworkManager().fetchFilms { (films) in
-      self.films = films
+    NetworkManager().fetchFilms { [weak self] (films) in
+      self?.films = films
       DispatchQueue.main.async{
-        self.tableView.reloadData()
+        self?.tableView.reloadData()
       }
     }
   }
