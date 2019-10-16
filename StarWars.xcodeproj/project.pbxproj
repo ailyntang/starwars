@@ -13,6 +13,7 @@
 		6A635402234C07010042F2D0 /* PeopleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A635400234C07010042F2D0 /* PeopleViewController.xib */; };
 		6A635409234C0B500042F2D0 /* PeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A635407234C0B500042F2D0 /* PeopleCell.swift */; };
 		6A63540A234C0B500042F2D0 /* PeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A635408234C0B500042F2D0 /* PeopleCell.xib */; };
+		6A63542F23542CB40042F2D0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63542E23542CB40042F2D0 /* HomeViewModel.swift */; };
 		6A8AAFFA2343648C005A5C02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAFF92343648C005A5C02 /* AppDelegate.swift */; };
 		6A8AAFFC2343648C005A5C02 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8AAFFB2343648C005A5C02 /* HomeViewController.swift */; };
 		6A8AAFFF2343648C005A5C02 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8AAFFD2343648C005A5C02 /* Home.storyboard */; };
@@ -45,6 +46,7 @@
 		6A635400234C07010042F2D0 /* PeopleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleViewController.xib; sourceTree = "<group>"; };
 		6A635407234C0B500042F2D0 /* PeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCell.swift; sourceTree = "<group>"; };
 		6A635408234C0B500042F2D0 /* PeopleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleCell.xib; sourceTree = "<group>"; };
+		6A63542E23542CB40042F2D0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6A8AAFF62343648C005A5C02 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8AAFF92343648C005A5C02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A8AAFFB2343648C005A5C02 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,13 @@
 			path = People;
 			sourceTree = "<group>";
 		};
+		6A63540B234D56D80042F2D0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		6A8AAFED2343648C005A5C02 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +147,7 @@
 		6A8AB00D2343648E005A5C02 /* StarWarsTests */ = {
 			isa = PBXGroup;
 			children = (
+				6A63540B234D56D80042F2D0 /* Home */,
 				6A8AB00E2343648E005A5C02 /* StarWarsTests.swift */,
 				6A8AB0102343648E005A5C02 /* Info.plist */,
 			);
@@ -148,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8AAFFB2343648C005A5C02 /* HomeViewController.swift */,
+				6A63542E23542CB40042F2D0 /* HomeViewModel.swift */,
 				6A8AAFFD2343648C005A5C02 /* Home.storyboard */,
 				6A8AB01A234410B1005A5C02 /* HomeCell.swift */,
 				6A8AB01B234410B1005A5C02 /* HomeCell.xib */,
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A47D2532345F62C00277F99 /* NetworkManager.swift in Sources */,
+				6A63542F23542CB40042F2D0 /* HomeViewModel.swift in Sources */,
 				6A47D293234817B700277F99 /* APIResponses.swift in Sources */,
 				6A635409234C0B500042F2D0 /* PeopleCell.swift in Sources */,
 				6A8AB02E2344BA84005A5C02 /* FilmCell.swift in Sources */,
