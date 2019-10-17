@@ -6,12 +6,12 @@ final class FilmsViewController: UIViewController {
   
   private let cellIdentifier = "FilmCell"
   private var films: [Film]?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
   }
-  
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     NetworkManager().fetchFilms { [weak self] (films) in
